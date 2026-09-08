@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub de Estudos - Aula de Genética</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header class="header">
+            <div class="header-info">
+                <span class="category">Biologia > Genética</span>
+                <h1>Aula de Genética</h1>
+                <p id="total-materiais">8 materiais salvos</p>
+            </div>
+            <button class="btn-primary" onclick="abrirModal()">+ Adicionar Material</button>
+        </header>
+
+        <!-- Filtros de Formato -->
+        <nav class="filters">
+            <button class="filter-btn active" onclick="filtrar('todos')">Todos</button>
+            <button class="filter-btn" onclick="filtrar('pdf')">📄 PDFs</button>
+            <button class="filter-btn" onclick="filtrar('video')">🎥 Vídeos</button>
+            <button class="filter-btn" onclick="filtrar('lousa')">🖼️ Fotos da Lousa</button>
+            <button class="filter-btn" onclick="filtrar('anotacao')">📝 Anotações</button>
+        </nav>
+
+        <!-- Grid de Materiais -->
+        <main class="materials-grid" id="materialsGrid">
+            <!-- Os cards serão carregados dinamicamente via JS -->
+        </main>
+    </div>
+
+    <!-- Modal para Adicionar Novo Material -->
+    <div class="modal" id="modalMaterial">
+        <div class="modal-content">
+            <h2>Adicionar Novo Material</h2>
+            <form id="materialForm" onsubmit="adicionarMaterial(event)">
+                <label for="titulo">Título do Material:</label>
+                <input type="text" id="titulo" required placeholder="Ex: Exercícios da 1ª Lei de Mendel">
+
+                <label for="tipo">Tipo de Mídia:</label>
+                <select id="tipo" required>
+                    <option value="pdf">PDF de Aula</option>
+                    <option value="video">Vídeo do YouTube</option>
+                    <option value="lousa">Foto da Lousa</option>
+                    <option value="anotacao">Anotação Pessoal</option>
+                </select>
+
+                <label for="link">Link ou Descrição Detalhada:</label>
+                <input type="text" id="link" required placeholder="Cole a URL ou observação">
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="fecharModal()">Cancelar</button>
+                    <button type="submit" class="btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+  </html>
